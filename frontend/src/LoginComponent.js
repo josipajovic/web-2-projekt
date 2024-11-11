@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const apiUrl = process.env.REACT_APP_API_URL  + '/login'
 
 function LoginComponent() {
     const [username, setUsername] = useState('');
@@ -7,7 +8,7 @@ function LoginComponent() {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3001/login', {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
